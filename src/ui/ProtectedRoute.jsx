@@ -14,16 +14,16 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   //1. Load the authenticatd user
   const { isLoading, isAuthenticated, isFetching } = useUser();
-  console.log("step 1 pass");
+  // console.log("step 1 pass");
 
   //2. If their is no Authenticated user,redirect to the /login
   useEffect(() => {
     if (!isAuthenticated && !isLoading && !isFetching) navigate("/login");
-    console.log({ isAuthenticated });
-    console.log({ isLoading });
-    console.log({ isFetching });
+    // console.log({ isAuthenticated });
+    // console.log({ isLoading });
+    // console.log({ isFetching });
   }, [isAuthenticated, isLoading, navigate, isFetching]);
-  console.log("step 2 pass");
+  // console.log("step 2 pass");
   //3. While loading , show the spinner
   if (isLoading)
     return (
@@ -31,9 +31,9 @@ function ProtectedRoute({ children }) {
         <Spinner />
       </FullPage>
     );
-  console.log("step 3 pass");
-  //4. If there is a user , render the app
-  console.log("step 4 pass");
+  // console.log("step 3 pass");
+  // //4. If there is a user , render the app
+  // console.log("step 4 pass");
 
   if (isAuthenticated) return children;
 }

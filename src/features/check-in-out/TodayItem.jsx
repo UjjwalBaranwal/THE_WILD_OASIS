@@ -15,13 +15,16 @@ const StyledTodayItem = styled.li`
     border-top: 1px solid var(--color-grey-100);
   }
 `;
-
-const Guest = styled.div`
-  font-weight: 500;
-`;
+// uncomment it when complete this component
+// const Guest = styled.div`
+//   font-weight: 500;
+// `;
 
 function TodayItem({ activity }) {
-  const { id, status, guests, numNights } = activity;
+  // const { id, status, guests, numNights } = activity;
+  // this is an uncomplete component
+  console.log(activity);
+
   return (
     <StyledTodayItem>
       {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}

@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import Spinner from "../../ui/Spinner";
 import CabinRow from "./CabinRow";
 import { useCabins } from "./useCabins";
@@ -7,6 +5,7 @@ import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
 import Empty from "../../ui/Empty";
+import toast from "react-hot-toast";
 
 function CabinTable() {
   const { isLoading, cabins, error } = useCabins();
@@ -14,6 +13,7 @@ function CabinTable() {
   if (!cabins?.length) return <Empty resourceName="cabins" />;
 
   if (isLoading) return <Spinner />;
+  if (error) toast.error("Something bad happen refresh");
   // filter
   const filterValue = searchParams.get("discount") || "all";
   console.log(filterValue);
